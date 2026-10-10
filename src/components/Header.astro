@@ -1,0 +1,113 @@
+<header id="nav" class="sticky top-0 z-50 flex flex-col items-center py-5 w-full navstyle backdrop-blur-md bg-neutral-950/70 py-4 border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)] transition-all duration-300">
+  <!-- Botón de menú hamburguesa en móviles -->
+  <div class="flex items-center sm:hidden">
+    <button
+      id="menu-toggle"
+      type="button"
+      class="text-gray-500 hover:text-yellow-200/90 focus:outline-none transition-colors"
+    >
+      <!-- Icono de menú cerrado -->
+      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Navegación para pantallas grandes -->
+  <nav class="hidden sm:flex flex-row gap-x-10 opacity-80">
+    <a class="transition-colors hover:text-yellow-200/90" href="#" id="inicio-desktop">Inicio</a>
+    <a class="transition-colors hover:text-yellow-200/90" href="#proyectos">Proyectos</a>
+    <a class="transition-colors hover:text-yellow-200/90" href="#about">Sobre mí</a>
+  </nav>
+
+
+  <!-- Navegación desplegable para pantallas móviles -->
+  <div
+    id="mobile-menu"
+    class="hidden flex-col items-center w-full mt-4 sm:hidden transition-all duration-300 ease-in-out transform opacity-0 scale-95"
+  >
+    <a class="block py-2 transition-colors hover:text-yellow-200/90 mobile-nav-link" href="#" id="inicio-mobile">Inicio</a>
+    <a class="block py-2 transition-colors hover:text-yellow-200/90 mobile-nav-link" href="#proyectos">Proyectos</a>
+    <a class="block py-2 transition-colors hover:text-yellow-200/90 mobile-nav-link" href="#about">Sobre mí</a>
+  </div>
+</header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    const closeMobileMenu = () => {
+      if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
+        mobileMenu.classList.add("hidden");
+        mobileMenu.classList.remove("opacity-100", "scale-100");
+        mobileMenu.classList.add("opacity-0", "scale-95");
+      }
+    };
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+
+        if (!mobileMenu.classList.contains("hidden")) {
+          mobileMenu.classList.remove("opacity-0", "scale-95");
+          mobileMenu.classList.add("opacity-100", "scale-100");
+        } else {
+          mobileMenu.classList.remove("opacity-100", "scale-100");
+          mobileMenu.classList.add("opacity-0", "scale-95");
+        }
+      });
+    }
+
+    // Cerrar menú móvil al hacer clic en cualquier enlace
+    const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+    mobileNavLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        closeMobileMenu();
+      });
+    });
+
+    // "Inicio" desplaza arriba sin recargar la página
+    ["inicio-desktop", "inicio-mobile"].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener("click", (e) => {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          history.replaceState(null, "", window.location.pathname);
+          closeMobileMenu();
+        });
+      }
+    });
+  });
+</script>
+
+<style>
+  #nav {
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Estilos para el menú móvil */
+  #mobile-menu a {
+    text-align: center;
+    font-size: 1rem;
+    color: #fff; /* Color del texto */
+  }
+
+  #mobile-menu a:hover {
+    color: #facc15; /* Hover amarillo */
+  }
+
+  /* Transición suave */
+  #mobile-menu {
+    transition: all 0.5s ease-in-out;
+  }
+
+  /* Alineación de ítems */
+  @media (min-width: 640px) {
+    #nav {
+      flex-direction: row;
+    }
+  }
+</style>

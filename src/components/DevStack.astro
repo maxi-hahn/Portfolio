@@ -1,0 +1,66 @@
+---
+const CATEGORIES = [
+  {
+    title: "Lenguajes de Programación",
+    items: [
+      { name: "C#", level: "Práctico (.NET)" },
+      { name: "JavaScript", level: "Práctico" },
+      { name: "Python", level: "Básico / Intermedio" },
+      { name: "C", level: "Inicial (Académico)" },
+    ]
+  },
+  {
+    title: "Desarrollo Frontend",
+    items: [
+      { name: "React", level: "Práctico" },
+      { name: "HTML5 & CSS3", level: "Práctico" },
+      { name: "Tailwind CSS", level: "Práctico" },
+      { name: "Bootstrap", level: "Básico" },
+    ]
+  },
+  {
+    title: "Backend & Bases de Datos",
+    items: [
+      { name: ".NET / ASP.NET Core", level: "Práctico (Principal)" },
+      { name: "APIs REST & JWT", level: "Práctico" },
+      { name: "Entity Framework Core", level: "Práctico" },
+      { name: "SQL & SQL Server", level: "Práctico" },
+      { name: "Node.js", level: "Básico / Intermedio" },
+      { name: "MongoDB", level: "Básico" },
+    ]
+  },
+  {
+    title: "Herramientas & Arquitectura",
+    items: [
+      { name: "Git & GitHub", level: "Práctico" },
+      { name: "Azure", level: "Básico / Práctico" },
+      { name: "Clean Architecture", level: "Práctico (GymTup)" },
+      { name: "Principios SOLID", level: "Práctico" },
+      { name: "Repository Pattern", level: "Práctico" },
+    ]
+  }
+];
+---
+
+<section class="mt-16 mb-8 w-full">
+  <h2 class="text-4xl font-semibold mb-8 flex gap-x-3 items-center transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_10px_rgba(255,255,255,1)] hover:scale-105 origin-left w-fit cursor-default">
+    <svg class="size-7" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+    Habilidades & Stack Tecnológico
+  </h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {CATEGORIES.map((cat) => (
+      <div class="p-6 bg-white/5 border border-white/10 rounded-2xl">
+        <h3 class="text-xl font-semibold text-yellow-200 mb-4">{cat.title}</h3>
+        <ul class="space-y-3">
+          {cat.items.map((item) => (
+            <li class="flex items-center justify-between border-b border-white/5 pb-2">
+              <span class="font-medium text-white">{item.name}</span>
+              <span class="text-xs px-2.5 py-1 rounded-full bg-white/10 text-gray-300 font-mono">{item.level}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</section>

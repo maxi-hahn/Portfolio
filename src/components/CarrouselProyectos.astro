@@ -1,0 +1,70 @@
+---
+// console.log(idCarrousel)
+import CarrouselComponent from "./CarrouselComponent.astro"
+
+
+
+---
+
+<div id="animation-carousel" class="relative w-full" data-carousel="static">
+    <!-- Carousel wrapper -->
+    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+        <!-- Item 1 -->
+        <CarrouselComponent idItem="item1" imgItem="https://fotografias.antena3.com/clipping/cmsimages02/2022/12/20/E9EDE726-2AF4-42F4-A2B8-F6B0460D752A/leo-messi-toca-copa-mundo-futbol-ganar-final-argentina_104.jpg?crop=1639,1639,x378,y0&width=1200&height=1200&optimize=low&format=webply"/>
+        <!-- Item 2 -->
+        <CarrouselComponent idItem="item2" imgItem="https://i.pinimg.com/originals/07/c2/fa/07c2fa00df9cdd8530c126c7febaf5e8.jpg"/>
+        <!-- Item 3 -->
+        <CarrouselComponent idItem="item3" imgItem="https://cadenaser.com/resizer/jDTGgSIAkSdZYfMrUFdAlSiCMlk=/1200x1200/filters:format(jpg):quality(70)/cloudfront-eu-central-1.images.arcpublishing.com/prisaradio/TOLWBLP2DRFWZPVWKRWIQ4WH3I.jpg" />
+    </div>
+    <!-- Slider controls -->
+    <button
+        type="button"
+        class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        data-carousel-prev
+    >
+        <span
+            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+        >
+            <svg
+                class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+            >
+                <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 1 1 5l4 4"></path>
+            </svg>
+            <span class="sr-only">Previous</span>
+        </span>
+    </button>
+    <button
+        type="button"
+        class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        data-carousel-next
+    >
+        <span
+            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+        >
+            <svg
+                class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+            >
+                <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 9 4-4-4-4"></path>
+            </svg>
+            <span class="sr-only">Next</span>
+        </span>
+    </button>
+</div>

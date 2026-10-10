@@ -1,0 +1,111 @@
+---
+interface Props {
+    idItem: number;
+	title: string;
+	description: string;
+	details:string;
+	tecnologies:string;
+    link: string;
+    github: string;
+	images:[string]
+    tags: [string]
+}
+
+import Layout from "../layouts/Layout.astro";
+import Experience from "../components/Experience.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Maleta from "../icons/Maleta.astro";
+import ProyectosIcon from "../icons/ProyectoIcon.astro";
+import UserIcon from "../icons/UserIcon.astro"
+import Presentacion from "../components/Presentacion.astro";
+import About from "../components/About.astro"
+import Proyectos from "../components/Proyectos"
+import EfectoEscritura from "../components/EfectoEscritura";
+import PngFlotante from "../components/PngFlotante";
+import Readicon from "../icons/Readicon.astro";
+import Skills from "../components/Skills.astro";
+import ButtonSubir from "../components/ButtonSubir.astro";
+import DevStack from "../components/DevStack.astro";
+
+---
+
+
+
+<Layout
+	title="Portfolio de Maximo Hahn - Desarrollador y programador web"
+	description="Contratame para construir soluciones"
+>
+	<main class="px-4">
+		<SectionContainer>
+			<div class="flex mb-7 divFotoPresentacion">
+					<img
+				class="rounded-full fotoperfil mr-6 transition-all duration-300 border-4 border-transparent hover:border-yellow-200 hover:shadow-[0_0_30px_rgba(253,224,71,0.6)] cursor-pointer hover:scale-105"
+				src="/image.jpeg"
+				alt="Foto Maximo hahn"
+			/>
+				<div class="flex flex-col justify-center min-w-72">
+					<EfectoEscritura client:load/>
+				</div>
+			</div>
+			<Presentacion />
+		</SectionContainer>
+		<SectionContainer>
+			<h2
+				class="text-4xl font-semibold mb-6 flex gap-x-3 items-center transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_10px_rgba(255,255,255,1)] hover:scale-105 origin-left w-fit cursor-default"
+			>
+				<ProyectosIcon class="size-7" />
+				Habilidades
+			</h2>
+			<section class="flex flex-wrap justify-center">
+				<Skills />
+			</section>
+		</SectionContainer>
+		<SectionContainer id="proyectos">
+			<h2
+				class="text-4xl font-semibold mb-6 flex gap-x-3 items-center transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_10px_rgba(255,255,255,1)] hover:scale-105 origin-left w-fit cursor-default"
+			>
+				<Maleta class="size-7" />
+				Proyectos
+			</h2>
+			<section class="flex flex-wrap justify-center">
+				<Proyectos client:load/>
+			</section>
+		</SectionContainer>
+        <SectionContainer>
+            <DevStack />
+        </SectionContainer>
+		<SectionContainer id="about">
+			<h2 class="text-4xl font-semibold mb-6 flex gap-x-3 items-center transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_10px_rgba(255,255,255,1)] hover:scale-105 origin-left w-fit cursor-default">
+				<UserIcon class="size-7" />
+				Sobre mi
+			</h2>
+			<About />
+		</SectionContainer>
+		<ButtonSubir />
+
+	</main>
+</Layout>
+
+<style>
+	.fontSize {
+		font-size: 15px;
+	}
+
+	.fotoperfil {
+		width: 260px;
+		height: auto;
+		object-fit: cover;
+		object-position: center top;
+	}
+	@media(max-width:870px){
+		.divFotoPresentacion{
+			flex-direction: column;
+			gap: 30px;
+			align-items: center;
+		}
+		.fotoperfil {
+			width: 220px;
+			height: auto;
+		}
+	}
+</style>

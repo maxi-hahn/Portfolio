@@ -1,0 +1,140 @@
+---
+import SocialPill from "./SocialPill.astro";
+import LinkedinIcon from "../icons/Linkedin.astro";
+import MailIcon from "../icons/MailIcon.astro";
+import GithubIcon from "../icons/GithubIcon.astro";
+import Whatsapp from "../icons/Whatsapp.astro";
+---
+
+<div class="presenText max-w-[900px] flex flex-col gap-3 mt-1">
+
+  <!-- Título principal universitario con espacio para el logo de UTN -->
+  <div class="utn-degree-row">
+    <a
+      href="https://www.frro.utn.edu.ar/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="utn-logo-link"
+      title="Universidad Tecnológica Nacional — Facultad Regional Rosario"
+    >
+      <img
+        src="/utn-logo.png"
+        alt="Logo UTN FRRo"
+        class="utn-logo"
+        onerror="this.parentElement.style.display='none'"
+      />
+    </a>
+    <h1 class="utn-degree-title">Técnico Universitario en Programación</h1>
+  </div>
+
+  <p class="text-xl lg:text-2xl">
+    <span>Desarrollador de Software</span><span class="text-yellow-200/90">, enfocado en construir soluciones robustas.</span>
+  </p>
+
+  <p class="text-blue-100/70 text-lg">Rosario, Argentina</p>
+
+</div>
+<nav class="flex gap-4 mt-8 flex-wrap presenTag">
+  <SocialPill
+    href="https://www.linkedin.com/in/maxi-hahn-b13b3b260/"
+    target="_blank"
+  >
+    <LinkedinIcon class="size-4 md:size-6" />
+    <span class="fontSize">LinkedIn</span>
+  </SocialPill>
+  <SocialPill href="https://github.com/maxi-hahn" target="_blank">
+    <GithubIcon class="size-4 md:size-6" />
+    <span class="fontSize">Github</span>
+  </SocialPill>
+  <SocialPill href="mailto:maxihahn0@gmail.com">
+    <MailIcon class="size-4 md:size-6" />
+    <span class="fontSize selectable">maxihahn0@gmail.com</span>
+  </SocialPill>
+  <SocialPill
+    href="https://wa.me/5493412837317"
+    target="_blank"
+  >
+    <Whatsapp class="size-4 md:size-6" />
+    <span class="fontSize">Whatsapp</span>
+  </SocialPill>
+</nav>
+
+<style>
+  @media(max-width: 870px) {
+    .presenTag {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      justify-content: center;
+      gap: 20px;
+    }
+    .presenText {
+      text-align: center;
+      align-items: center;
+    }
+    .utn-degree-row {
+      justify-content: center;
+    }
+  }
+
+  .selectable {
+    user-select: text;
+    cursor: text;
+  }
+
+  /* Fila del título principal universitario */
+  .utn-degree-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .utn-degree-title {
+    font-size: 1.875rem; /* 30px */
+    line-height: 2.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.025em;
+  }
+
+  @media (min-width: 640px) {
+    .utn-degree-title {
+      font-size: 2.25rem; /* 36px */
+      line-height: 2.5rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .utn-degree-title {
+      font-size: 2.75rem; /* 44px */
+      line-height: 1.1;
+    }
+  }
+
+  /* Logo UTN — se oculta automáticamente si la imagen aún no existe en disk */
+  .utn-logo-link {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    opacity: 0.9;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .utn-logo-link:hover {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  .utn-logo {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  @media (min-width: 640px) {
+    .utn-logo {
+      height: 48px;
+    }
+  }
+</style>
+

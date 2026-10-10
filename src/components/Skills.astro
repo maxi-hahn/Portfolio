@@ -1,0 +1,107 @@
+---
+const TAGS = [
+  { name: "JavaScript", label: "JavaScript", ruta: "/js.svg" },
+  { name: "React", label: "React", ruta: "/react.svg" },
+  { name: "Node.js", label: "Node.js", ruta: "/node.svg" },
+  { name: "CSS3", label: "CSS", ruta: "/css.svg" },
+  { name: "Python", label: "Python", ruta: "/python.svg" },
+  { name: "Tailwind CSS", label: "Tailwind", ruta: "/tailwind.svg" },
+  { name: "MySQL", label: "MySQL", ruta: "/mysql.svg" },
+  { name: "PostgreSQL", label: "PostgreSQL", ruta: "/postgresql.svg" },
+  { name: "MongoDB", label: "MongoDB", ruta: "/mongodb.svg" },
+  { name: "Vite", label: "Vite", ruta: "/vite.svg" },
+  { name: "Astro", label: "Astro", ruta: "/astro.svg" }
+];
+---
+
+<article class="article-scroll">
+  <div class="scroll-container">
+    {TAGS.map((s) => (
+      <div class="skill-item-wrapper group">
+        <img
+          class="w-14 h-14 sm:w-16 sm:h-16 md:w-[72px] md:h-[72px] object-contain filter grayscale transition-all duration-300 ease-in-out transform group-hover:scale-110 group-hover:grayscale-0 group-hover:brightness-125"
+          src={s.ruta}
+          alt={s.name}
+        />
+        <span class="skill-tooltip">
+          {s.label}
+        </span>
+      </div>
+    ))}
+    {/* Repetimos las imágenes para un bucle más suave */}
+    {TAGS.map((s) => (
+      <div class="skill-item-wrapper group">
+        <img
+          class="w-14 h-14 sm:w-16 sm:h-16 md:w-[72px] md:h-[72px] object-contain filter grayscale transition-all duration-300 ease-in-out transform group-hover:scale-110 group-hover:grayscale-0 group-hover:brightness-125"
+          src={s.ruta}
+          alt={s.name}
+        />
+        <span class="skill-tooltip">
+          {s.label}
+        </span>
+      </div>
+    ))}
+  </div>
+</article>
+
+
+<style>
+
+.article-scroll {
+  overflow: hidden;
+  display: flex;
+  gap: 1rem;
+}
+
+.scroll-container {
+  display: flex;
+  gap: 3rem;
+  animation: scroll 35s linear infinite;
+  padding-top: 20px;
+  padding-bottom: 36px;
+}
+
+.skill-item-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  min-width: 56px;
+}
+
+.skill-tooltip {
+  position: absolute;
+  top: 100%;
+  margin-top: 6px;
+  white-space: nowrap;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fef08a;
+  background: rgba(15, 15, 15, 0.95);
+  border: 1px solid rgba(254, 240, 138, 0.3);
+  padding: 2px 8px;
+  border-radius: 6px;
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.skill-item-wrapper:hover .skill-tooltip {
+  opacity: 1;
+  transform: translateY(2px);
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+</style>

@@ -1,0 +1,15 @@
+
+.imgStyle{
+    max-width: 40%;
+}
+
+@media(max-width:870px){
+    .divPng{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .imgStyle{
+        max-width: 80%;
+    }
+}
