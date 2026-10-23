@@ -84,6 +84,7 @@ const ProjectCard = ({ project }) => {
     githubBack,
     github,
     templatesRepo,
+    docs,
     hasDeploy,
     desktopImages = [],
     mobileImages = [],
@@ -156,10 +157,17 @@ const ProjectCard = ({ project }) => {
               <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 7h18M3 12h18M3 17h18"/></svg>
               <span>Ver Templates</span>
             </a>
-            <span className="btn-deploy-disabled" title="Documentación en preparación">
-              <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-              <span>Ver Documentación</span>
-            </span>
+            {docs ? (
+              <a href={docs} target="_blank" rel="noopener noreferrer" className="btn-github">
+                <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                <span>Ver Documentación</span>
+              </a>
+            ) : (
+              <span className="btn-deploy-disabled" title="Documentación en preparación">
+                <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                <span>Ver Documentación</span>
+              </span>
+            )}
           </>
         )}
 
@@ -213,6 +221,7 @@ const Proyectos = () => {
       techList: ["Python", "CustomTkinter", "PyInstaller", "Pytest", "Git / GitHub"],
       github: "https://github.com/maxi-hahn/Project-Manager",
       templatesRepo: "https://github.com/maxi-hahn/project-manager-templates",
+      docs: "https://project-manager-docs.vercel.app/",
       hasDeploy: false,
       desktopImages: [
         "/projects/7.png",
